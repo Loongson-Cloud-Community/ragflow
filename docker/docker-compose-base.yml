@@ -3,7 +3,7 @@ services:
     container_name: ragflow-es-01
     profiles:
       - elasticsearch
-    image: elasticsearch:${STACK_VERSION}
+    image: cr.loongnix.cn/library/elasticsearch:8.7.0
     volumes:
       - esdata01:/usr/share/elasticsearch/data
     ports:
@@ -68,7 +68,7 @@ services:
 
   mysql:
     # mysql:5.7 linux/arm64 image is unavailable.
-    image: mysql:8.0.39
+    image: cr.loongnix.cn/library/mysql:8.0.40
     container_name: ragflow-mysql
     env_file: .env
     environment:

@@ -3,7 +3,8 @@
 FROM scratch
 
 # Copy resources downloaded via download_deps.py
-COPY chromedriver-linux64-121-0-6167-85 chrome-linux64-121-0-6167-85 cl100k_base.tiktoken libssl1.1_1.1.1f-1ubuntu2_amd64.deb libssl1.1_1.1.1f-1ubuntu2_arm64.deb tika-server-standard-3.0.0.jar tika-server-standard-3.0.0.jar.md5 libssl*.deb /
+#COPY chromedriver-linux64-121-0-6167-85 chrome-linux64-121-0-6167-85 cl100k_base.tiktoken libssl1.1_1.1.1f-1ubuntu2_amd64.deb libssl1.1_1.1.1f-1ubuntu2_arm64.deb tika-server-standard-3.0.0.jar tika-server-standard-3.0.0.jar.md5 libssl*.deb /
+COPY libssl1.1_1.1.1d-0%2Blnd.12_loongarch64.deb tika-server-standard-3.0.0.jar tika-server-standard-3.0.0.jar.md5 cl100k_base.tiktoken lbrowser_3.3.2091.6-1.stable.loongarch64.deb chromedriver_linux64.zip /
 
 COPY nltk_data /nltk_data
 

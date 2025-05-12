@@ -262,18 +262,19 @@ def test_db_connect():
             db = PostgresqlDatabase(req["database"], user=req["username"], host=req["host"], port=req["port"],
                                     password=req["password"])
         elif req["db_type"] == 'mssql':
-            import pyodbc
-            connection_string = (
-                f"DRIVER={{ODBC Driver 17 for SQL Server}};"
-                f"SERVER={req['host']},{req['port']};"
-                f"DATABASE={req['database']};"
-                f"UID={req['username']};"
-                f"PWD={req['password']};"
-            )
-            db = pyodbc.connect(connection_string)
-            cursor = db.cursor()
-            cursor.execute("SELECT 1")
-            cursor.close()
+#            import pyodbc
+#            connection_string = (
+#                f"DRIVER={{ODBC Driver 17 for SQL Server}};"
+#                f"SERVER={req['host']},{req['port']};"
+#                f"DATABASE={req['database']};"
+#                f"UID={req['username']};"
+#                f"PWD={req['password']};"
+#            )
+#            db = pyodbc.connect(connection_string)
+#            cursor = db.cursor()
+#            cursor.execute("SELECT 1")
+#            cursor.close()
+            return server_error_response("Unsupported database type. loongarch架构不支持mssql,请更改为mysql或pgsql")
         else:
             return server_error_response("Unsupported database type.")
         if req["db_type"] != 'mssql':
